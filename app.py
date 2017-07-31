@@ -126,17 +126,17 @@ def processRequest(req):
     data = json.loads(result)
     print('data:', data)
 
-    jsondata=requests.get(baseurl).json()
-    for A in jsondata:
-    	print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
-    	speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
-    	counter+=1
+    #jsondata=requests.get(baseurl).json()
+    #for A in jsondata:
+    	#print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
+    	#speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
+    	#counter+=1
 
-    speech="Here are some properties with your choice:Yoy have total of "+counter+"records."
+    #speech="Here are some properties with your choice:Yoy have total of "+counter+"records."
    
-    #res2=json_to_text(data):
-    #print('res2:',res2)
-    #return res2
+    res2=json_to_text(data)
+    print('res2:',res2)
+    return res2
 
     #res = makeWebhookResult(data)
 
