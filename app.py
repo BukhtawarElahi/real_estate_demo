@@ -90,7 +90,6 @@ def processRequest(req):
    
     city_names=processlocation(req)
     property_type=processPropertyType(req)
-    unit_property=processUnit(req)
     area_property=processArea(req)
     maximum_value=processMaximum(req)
     project_name=processProjectName(req)
