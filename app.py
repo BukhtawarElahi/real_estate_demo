@@ -123,7 +123,7 @@ def json_to_text(data):
      print('speech Data',speech_data)
      print('Text Data',text_data)
      return {
-        "speech": speech_data,
+        "speech": text_data,
         "displayText": text_data,
         "data": {},
         "contextOut": [],
