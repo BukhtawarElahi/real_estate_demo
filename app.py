@@ -19,7 +19,7 @@ import os
 import requests
 #from bs4 import BeautifulSoup
 #import  re
-import urllib.parse
+#import urllib.parse
 
 #//end sir
 from flask import Flask
@@ -120,28 +120,23 @@ def processRequest(req):
     counter=0 
 
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s=city_names"
-
     result = urllib.request.urlopen(baseurl).read()
     print('result of url:', result)
     data = json.loads(result)
     print('data:', data)
-
     jsondata=requests.get(baseurl).json()
     for A in jsondata:
-    	print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
-    	speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
-    	counter+=1
+       print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
+       speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
+       counter+=1
     speech="Here are some properties with your choice:Yoy have total of "+counter+"records."
-   
     #res2=json_to_text(data)
     #print('res2:',res2)
     #return res2
-
     #res = makeWebhookResult(data)
-
     #print('res:',res)
 
-    return res
+    #return res
 
 
 
@@ -214,13 +209,13 @@ def json_to_text(data):
 	i+=1
      print('speech',speech)
      return {
-        "speech": speech,
-        "displayText": speech,
-        "data": {},
-        "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
-    	}
-      return data
+     "speech": speech,
+    "displayText": speech,
+    "data": {},
+    "contextOut": [],
+    "source": "apiai-onlinestore-shipping"
+    }
+    #return data
 
 def makeWebhookResult(data):
     i=0
