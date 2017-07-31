@@ -115,9 +115,9 @@ def processIntentName(req):
 def processlocation(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    city = parameters.get("city")
+    city = parameters.get("locations[city]")
     print("city data:", city)
-    print("city:", city[city])
+    print("city:", city)
 
     return city[city]
 
