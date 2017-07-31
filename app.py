@@ -202,27 +202,26 @@ def json_to_text(data):
      row_image=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
      row_city=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
      while (i <length):
-          row_id[i]=data[i]['property_id']
-	  row_title[i]=data[i]['title']
-	  row_location[i]=data[i]['address']
-	  row_price[i]=data[i]['price']
-          row_slug[i]=data[i]['slug']
-	  row_number[i]=data[i]['number']
-	  row_image[i]=data[i]['image']
-	  row_city[i]=data[i]['city_name']
-	  speech_parts = "Here is number :" + i +"record"+ row_title[i]+ " price is "+ row_price[i]+ "For Info about this contact at number "+row_number 
-	  speech=speech+speech_parts	
-	  i+=1
+        row_id[i]=data[i]['property_id']
+        row_title[i]=data[i]['title']
+        row_location[i]=data[i]['address']
+        row_price[i]=data[i]['price']
+        row_slug[i]=data[i]['slug']
+        row_number[i]=data[i]['number']
+        row_image[i]=data[i]['image']
+        row_city[i]=data[i]['city_name']
+	speech_parts = "Here is number :" + i +"record"+ row_title[i]+ " price is "+ row_price[i]+ "For Info about this contact at number "+row_number 
+	speech=speech+speech_parts	
+	i+=1
      print('speech',speech)
      return {
-          "speech": speech,
-          "displayText": speech,
-          "data": {},
-          "contextOut": [],
-          "source": "apiai-onlinestore-shipping"
+        "speech": speech,
+        "displayText": speech,
+        "data": {},
+        "contextOut": [],
+        "source": "apiai-onlinestore-shipping"
     	}
-
-	return data
+      return data
 
 def makeWebhookResult(data):
     i=0
