@@ -14,38 +14,36 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__)
 
-'''
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    req = request.get_json(silent=True, force=True)
+#start
+#@app.route('/webhook', methods=['POST'])
+#def webhook():
+ #   req = request.get_json(silent=True, force=True)
+ #   print("Request:")
+ #  print(json.dumps(req, indent=4))
 
-    print("Request:")
-    print(json.dumps(req, indent=4))
+ #   res = makeWebhookResult(req)
 
-    res = makeWebhookResult(req)
+ #   res = json.dumps(res, indent=4)
+  #  print(res)
+ #   r = make_response(res)
+  #  r.headers['Content-Type'] = 'application/json'
+   # return r
 
-    res = json.dumps(res, indent=4)
-    print(res)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
-
-def makeWebhookResult(req):
-    if req.get("result").get("action") != "property_search":
-        return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    zone = parameters.get("city")
-    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'islamabad':500}
+#def makeWebhookResult(req):
+ #   if req.get("result").get("action") != "property_search":
+  #      return {}
+   # result = req.get("result")
+    #parameters = result.get("parameters")
+    #zone = parameters.get("city")
+    #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'islamabad':500}
     
 	
    
-    speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) +" euros. "
+    #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) +" euros. "
 
-    print("Response:")
+    #print("Response:")
+#end comment
 
-
-'''
 intent_name="string"
 QR=['0','1','2','3','4','5','6','7']
 
@@ -102,18 +100,18 @@ def processRequest(req):
     # minimum_value,maximum_value=minimum_value,maximum_value    
     #baseurl = "https://aarz.pk/bot/index.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+latest+"&UnitArea="+area_property+"&Unit="+unit_property+"&school="+school+"&airport="+airport+"&transport="+transport+"&security="+security+"&shopping_mall="+malls+"&fuel="+fuel
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0estate_agent=&purpose=Sell&property_type="+property_type
-    '''    result = urllib.request.urlopen(baseurl).read()
-    print(result)
-    data = json.loads(result)
-    res = makeWebhookResult(data)
-    return res '''
+    #result = urllib.request.urlopen(baseurl).read()
+    #print(result)
+    #data = json.loads(result)
+    #res = makeWebhookResult(data)
+    #return res 
  
     req = urllib2.Request(baseurl)
     req.add_header('Accept', 'application/json')
     result= urllib2.urlopen(baseurl).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
-    return res '''
+    return res
  
 
 def processIntentName(req):
