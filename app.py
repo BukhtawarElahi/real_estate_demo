@@ -169,7 +169,7 @@ def processProjectName(req):
     return project_name 
 
 
-def json_to_text(data)
+def jsonToText(data)
 	i=0
 	length=len(data)
 	speech="Here are some properties with your choice:Yoy have total of "+legth+"records."+
