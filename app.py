@@ -113,10 +113,16 @@ def processRequest(req):
     #except HTTPError as e:
     #content = e.read()
     #print(content)
-    print(result)
+    print("result of url:"+result)
     data = json.loads(result)
+
+    print("data:"+data)
+
     res = makeWebhookResult(data)
-    return data
+
+    print("res:"+res)
+
+    return res
 
 
 
