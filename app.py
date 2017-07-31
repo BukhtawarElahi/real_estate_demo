@@ -128,9 +128,9 @@ def processRequest(req):
 
     jsondata=requests.get(baseurl).json()
     for A in jsondata:
-    print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
-    speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
-    counter+=1
+    	print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
+    	speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
+    	counter+=1
 
     speech="Here are some properties with your choice:Yoy have total of "+counter+"records."
    
