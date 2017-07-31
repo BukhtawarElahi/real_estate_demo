@@ -118,11 +118,16 @@ def processRequest(req):
 
     print('data:', data)
 
-    res = makeWebhookResult(data)
+    res2=json_to_text(data):
+    print('res2:',res2)
 
-    print('res:',res)
+    return res2
 
-    return res
+    #res = makeWebhookResult(data)
+
+    #print('res:',res)
+
+    #return res
 
 
 
