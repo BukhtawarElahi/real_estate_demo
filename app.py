@@ -120,6 +120,7 @@ def processRequest(req):
     counter=0 
 
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s=city_names"
+    print("city:",city_names)
     result = urllib.request.urlopen(baseurl).read()
     print('result of url:', result)
     data = json.loads(result)
