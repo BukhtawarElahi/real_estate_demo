@@ -115,11 +115,11 @@ def processIntentName(req):
 def processlocation(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    city = parameters.get("locations[city]")
+    city = parameters.get("location[city]")
     print("city data:", city)
     print("city:", city)
 
-    return city[city]
+    return city
 
 
 def processMaximum(req):
