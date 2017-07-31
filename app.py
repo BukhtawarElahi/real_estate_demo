@@ -58,7 +58,7 @@ def processIntentName(req):
 def processlocation(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    cityNames = parameters.get("location")
+    cityNames = (parameters.get("location"))!=''?(parameters.get("location")):(city='')
     city= cityNames.get("city")
     print("city data:", city)
     print("city:", city)
