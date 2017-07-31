@@ -85,22 +85,7 @@ def processRequest(req):
         QR[4]="Price Range"
         QR[5]="Land Area"
         QR[6]="Property Type"
-   elif "ChoosePlotArea" in intent_name:        
-        QR[0]="(Y)"
-        QR[1]="Other Area?Specify"
-        QR[2]="Hot Property"
-        QR[3]="Price Range"
-        QR[4]="Land Area"
-        QR[5]="Change Location"
-        QR[6]="Property Type" 
-    elif "DefinePriceRange" in intent_name:        
-        QR[0]="(Y)"
-        QR[1]="Other Range?Specify"
-        QR[2]="Hot Property"
-        QR[3]="Price Range"
-        QR[4]="Land Area"
-        QR[5]="Property Type" 
-        QR[6]="Change Location"
+   
     city_names=processlocation(req)
     sector_names=processSector(req)
     property_type=processPropertyType(req)
