@@ -16,7 +16,7 @@ import os
 #sir
 
 #from google import search
-import requests
+#import requests
 #from bs4 import BeautifulSoup
 #import  re
 #import urllib.parse
@@ -124,15 +124,15 @@ def processRequest(req):
     print('result of url:', result)
     data = json.loads(result)
     print('data:', data)
-    jsondata=requests.get(baseurl).json()
-    for A in jsondata:
-       print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
-       speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
-       counter+=1
-    speech="Here are some properties with your choice:Yoy have total of "+counter+"records."
-    #res2=json_to_text(data)
-    #print('res2:',res2)
-    #return res2
+    #jsondata=requests.get(baseurl).json()
+    #for A in jsondata:
+       #print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
+       #speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
+       #counter+=1
+    #speech="Here are some properties with your choice:Yoy have total of "+counter+"records."
+    res2=json_to_text(data)
+    print('res2:',res2)
+    return res2
     #res = makeWebhookResult(data)
     #print('res:',res)
 
@@ -204,18 +204,18 @@ def json_to_text(data):
         row_number[i]=data[i]['number']
         row_image[i]=data[i]['image']
         row_city[i]=data[i]['city_name']
-        #speech_parts = "Here is number :" + i +"record"+ row_title[i]+ " price is "+ row_price[i]+ "For Info about this contact at number "+row_number 
-        #speech=speech+speech_parts	
+        speech_parts = "Here is number :" + i +"record"+ row_title[i]+ " price is "+ row_price[i]+ "For Info about this contact at number "+row_number 
+        speech=speech+speech_parts	
         i+=1
-     #print('speech',speech)
-     #return {
-     #"speech": speech,
-    #"displayText": speech,
-    #"data": {},
-    #"contextOut": [],
-    #"source": "apiai-onlinestore-shipping"
-    #}
-    #return data
+     print('speech',speech)
+     return {
+        "speech": speech,
+        "displayText": speech,
+        "data": {},
+        "contextOut": [],
+        "source": "apiai-onlinestore-shipping"
+    }
+    return data
 
 def makeWebhookResult(data):
     i=0
