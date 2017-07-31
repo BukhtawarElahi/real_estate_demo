@@ -90,15 +90,15 @@ def processRequest(req):
    
     city_names=processlocation(req)
     property_type=processPropertyType(req)
-    area_property=processArea(req)
     maximum_value=processMaximum(req)
-    project_name=processProjectName(req)
+
+   # project_name=processProjectName(req)
     #if minimum_value > maximum_value:
     #    minimum_value,maximum_value=maximum_value,minimum_value
     #else:
     # minimum_value,maximum_value=minimum_value,maximum_value    
     #baseurl = "https://aarz.pk/bot/index.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+latest+"&UnitArea="+area_property+"&Unit="+unit_property+"&school="+school+"&airport="+airport+"&transport="+transport+"&security="+security+"&shopping_mall="+malls+"&fuel="+fuel
-    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0&land_area="+unit_property+"&estate_agent=&purpose=Sell&property_type="+property_type
+    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0estate_agent=&purpose=Sell&property_type="+property_type
     result = urllib.urlopen(baseurl).read()
     print(result)
     data = json.loads(result)
