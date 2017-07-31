@@ -43,6 +43,8 @@ def makeWebhookResult(req):
 
 
 '''
+intent_name="string"
+QR=['0','1','2','3','4','5','6','7']
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
