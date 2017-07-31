@@ -89,28 +89,17 @@ def processRequest(req):
         QR[6]="Property Type"
    
     city_names=processlocation(req)
-    sector_names=processSector(req)
     property_type=processPropertyType(req)
     unit_property=processUnit(req)
     area_property=processArea(req)
-    NoOfDays=processDate(req)
-    DateUnit=processDateUnit(req)
-    school=processSchool(req)
-    malls=processMalls(req)
-    transport=processTransport(req)
-    security=processSecurity(req)
-    airport=processAirport(req)
-    fuel=processFuel(req)
-    #minimum_value=processMinimum(req)
     maximum_value=processMaximum(req)
-    latest=processLatestProperties(req)
     project_name=processProjectName(req)
     #if minimum_value > maximum_value:
     #    minimum_value,maximum_value=maximum_value,minimum_value
     #else:
     # minimum_value,maximum_value=minimum_value,maximum_value    
     #baseurl = "https://aarz.pk/bot/index.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+latest+"&UnitArea="+area_property+"&Unit="+unit_property+"&school="+school+"&airport="+airport+"&transport="+transport+"&security="+security+"&shopping_mall="+malls+"&fuel="+fuel
-    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&loc1="+sector_names+"&price_min="+maximum_value+"&price_max=0&land_area="+unit_property+"&min_r=0&max_r="+area_property+"&estate_agent=&hot="+latest+"&purpose=Sell&property_type="+property_type+"&school="+school+"&airport="+airport+"&transport="+transport+"&security="+security+"&shopping_mall="+malls+"&fuel="+fuel
+    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0&land_area="+unit_property+"&estate_agent=&purpose=Sell&property_type="+property_type
     result = urllib.urlopen(baseurl).read()
     print(result)
     data = json.loads(result)
@@ -131,16 +120,10 @@ def processlocation(req):
     return city
 
 
-def processMinimum(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    minimum = parameters.get("number")
-    return minimum
-
 def processMaximum(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    maximum = parameters.get("number1")
+    maximum = parameters.get("PriceRange")
     return maximum
 
 
@@ -150,18 +133,6 @@ def processPropertyType(req):
     propertyType = parameters.get("PropertyType")
     return propertyType
 
-
-def processPropertyType(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    propertyType = parameters.get("PropertyType")
-    return propertyType
-
-def processUnit(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    unit = parameters.get("Unit")
-    return unit
 
 def processProjectName(req):
     result = req.get("result")
