@@ -1,27 +1,11 @@
 #!/usr/bin/env python
 
 import urllib
-#import urllib.request
-
-#import urllib2
-
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
-
-
 import json
 import os
-
-#sir
-
-#from google import search
-#import requests
-#from bs4 import BeautifulSoup
-#import  re
-#import urllib.parse
-
-#//end sir
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -40,16 +24,6 @@ def webhook():
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
-#azqa
-
-
-
-
-
-
-
-
-
 
 def processRequest(req):
     if req.get("result").get("action") != "property_search":
@@ -63,12 +37,8 @@ def processRequest(req):
     maximum_value=processMaximum(req)
     #baseurl = "https://aarz.pk/bot/index.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+latest+"&UnitArea="+area_property+"&Unit="+unit_property+"&school="+school+"&airport="+airport+"&transport="+transport+"&security="+security+"&shopping_mall="+malls+"&fuel="+fuel
     #baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0estate_agent=&purpose=Sell&property_type="+property_type
-    
-#try:  
 
-    counter=0 
-
-    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&type="+property_type
+    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&type="+property_type+"&maxPrice="+maximum_value
     print("city:",city_names)
     print("url is:",baseurl)
     result = urllib.request.urlopen(baseurl).read()
@@ -102,6 +72,11 @@ def processMaximum(req):
     maximum = parameters.get("PriceRange")
     return maximum
 
+def processMinimum(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    min_price = parameters.get("min_price")
+    return min_price
 
 def processPropertyType(req):
     result = req.get("result")
@@ -120,7 +95,7 @@ def processProjectName(req):
 def json_to_text(data):
      i=0
      length=len(data)
-     speech="Here are some properties with your choice:Yoy have total of "+str(length)+"records."
+     speech="Here are some properties with your choice:We have total of "+str(length)+"records of you interest."
      row_id=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
      row_title=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
      row_location=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
