@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-#import urllib
+import urllib
 #import urllib.request
 
-import urllib2
+#import urllib2
 import json
 import os
 
@@ -100,18 +100,18 @@ def processRequest(req):
     # minimum_value,maximum_value=minimum_value,maximum_value    
     #baseurl = "https://aarz.pk/bot/index.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+latest+"&UnitArea="+area_property+"&Unit="+unit_property+"&school="+school+"&airport="+airport+"&transport="+transport+"&security="+security+"&shopping_mall="+malls+"&fuel="+fuel
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0estate_agent=&purpose=Sell&property_type="+property_type
-    #result = urllib.request.urlopen(baseurl).read()
-    #print(result)
-    #data = json.loads(result)
-    #res = makeWebhookResult(data)
-    #return res 
- 
-    req = urllib2.Request(baseurl)
-    req.add_header('Accept', 'application/json')
-    result= urllib2.urlopen(baseurl).read()
+    result = urllib.request.urlopen(baseurl).read()
+    print(result)
     data = json.loads(result)
     res = makeWebhookResult(data)
-    return res
+    return res 
+ 
+    #req = urllib2.Request(baseurl)
+    #req.add_header('Accept', 'application/json')
+    #result= urllib2.urlopen(baseurl).read()
+    #data = json.loads(result)
+    #res = makeWebhookResult(data)
+    #return res
  
 
 def processIntentName(req):
