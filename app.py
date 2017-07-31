@@ -15,11 +15,11 @@ import os
 
 #sir
 
-from google import search
-import requests
-from bs4 import BeautifulSoup
-import  re
-import urllib.parse
+#from google import search
+#import requests
+#from bs4 import BeautifulSoup
+#import  re
+#import urllib.parse
 
 #//end sir
 from flask import Flask
