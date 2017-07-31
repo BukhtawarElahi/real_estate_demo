@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-#import urllib
-import urllib.request
+import urllib
+#import urllib.request
 import json
 import os
 
