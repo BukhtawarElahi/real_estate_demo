@@ -120,7 +120,8 @@ def json_to_text(data):
         speech_data_parts ="Here is record " + str(i+1) +":"+ row_title[i]+" in city "+row_city[i] + " price is "+ str(row_price[i])+ ". For Info about this contact at number "+str(row_number[i])
         speech_data = speech_data + speech_data_parts	
         i+=1
-     print('speech',speech)
+     print('speech Data',speech_data)
+     print('Text Data',text_data)
      return {
         "speech": speech_data,
         "displayText": text_data,
