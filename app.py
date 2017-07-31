@@ -215,7 +215,7 @@ def json_to_text(data):
         "contextOut": [],
         "source": "apiai-onlinestore-shipping"
     }
-    return data
+    #return data
 
 def makeWebhookResult(data):
     i=0
