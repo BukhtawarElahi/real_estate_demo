@@ -56,10 +56,11 @@ def processIntentName(req):
     return intent
 
 def processlocation(req):
+    global city
     result = req.get("result")
     parameters = result.get("parameters")
     cityNames = parameters.get("location")
-    global city = cityNames.get("city")
+    city = cityNames.get("city")
     print("city data:", city)
     print("city:", city)
 
