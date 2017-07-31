@@ -185,6 +185,16 @@ def json_to_text(data):
 		speech_parts = "Here is number :" + i +"record"+ row_title[i]+ " price is "+ row_price[i]+ "For Info about this contact at number "+row_number 
 		speech=speech+speech_parts	
 		i+=1
+
+	print('speech',speech)
+	return {
+        "speech": speech,
+        "displayText": speech,
+        "data": {},
+        "contextOut": [],
+        "source": "apiai-onlinestore-shipping"
+    }
+
 	return data
 
 def makeWebhookResult(data):
