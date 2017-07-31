@@ -116,7 +116,7 @@ def processRequest(req):
     print(result)
     data = json.loads(result)
     res = makeWebhookResult(data)
-    return res 
+    return data
 
 
 
