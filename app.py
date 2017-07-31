@@ -102,9 +102,9 @@ def processRequest(req):
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0estate_agent=&purpose=Sell&property_type="+property_type
     try:  
     result = urllib.request.urlopen(baseurl).read()
-    except HTTPError as e:
-    content = e.read()
-    print(content)
+    #except HTTPError as e:
+    #content = e.read()
+    #print(content)
     print(result)
     data = json.loads(result)
     res = makeWebhookResult(data)
