@@ -193,6 +193,13 @@ def json_to_text(data):
 	i=0
 	length=len(data)
 	speech="Here are some properties with your choice:Yoy have total of "+str(length)+"records."
+ 	row_id=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
+    	row_title=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
+	row_location=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
+	row_price=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
+	row_slug=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
+	row_number=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
+	row_image=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
 	while (i <length):
 		row_id[i]=data[i]['property_id']
 		row_title[i]=data[i]['title']
