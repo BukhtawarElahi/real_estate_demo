@@ -213,7 +213,7 @@ def json_to_text(data):
         "data": {},
         "contextOut": [],
         "source": "apiai-onlinestore-shipping"
-    }
+    	}
 
 	return data
 
