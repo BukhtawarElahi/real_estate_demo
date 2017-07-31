@@ -13,6 +13,15 @@ from urllib.error import HTTPError
 import json
 import os
 
+#sir
+
+from google import search
+import requests
+from bs4 import BeautifulSoup
+import  re
+import urllib.parse
+
+#//end sir
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -107,27 +116,33 @@ def processRequest(req):
     #baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0estate_agent=&purpose=Sell&property_type="+property_type
     
 #try:  
+
+    counter=0 
+
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s=city_names"
 
     result = urllib.request.urlopen(baseurl).read()
-    #except HTTPError as e:
-    #content = e.read()
-    #print(content)
     print('result of url:', result)
     data = json.loads(result)
-
     print('data:', data)
 
-    res2=json_to_text(data):
-    print('res2:',res2)
+    jsondata=requests.get(baseurl).json()
+    for A in jsondata:
+    print (jsondata[counter]['title'],"Price $",jsondata[counter]['price'])
+    speech_parts+=jsondata[counter]['title'],"Price $",jsondata[counter]['price'] 
+    counter+=1
 
-    return res2
+    speech="Here are some properties with your choice:Yoy have total of "+counter+"records."
+   
+    #res2=json_to_text(data):
+    #print('res2:',res2)
+    #return res2
 
     #res = makeWebhookResult(data)
 
     #print('res:',res)
 
-    #return res
+    return res
 
 
 
