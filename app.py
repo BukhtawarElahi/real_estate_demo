@@ -121,6 +121,7 @@ def processRequest(req):
 
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s=city_names"
     print("city:",city_names)
+    print("url is:",baseurl)
     result = urllib.request.urlopen(baseurl).read()
     print('result of url:', result)
     data = json.loads(result)
@@ -535,13 +536,13 @@ def makeWebhookResult(data):
 #//////////
     print('speech',speech)
 
-    return {
-        "speech": speech,
-        "displayText": speech,
-        "data": {},
-        "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
-    }
+    #return {
+        #"speech": speech,
+       # "displayText": speech,
+      #  "data": {},
+     #   "contextOut": [],
+    #    "source": "apiai-onlinestore-shipping"
+   # }
 
 
 
