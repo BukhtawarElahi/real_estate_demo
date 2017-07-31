@@ -4,6 +4,12 @@ import urllib
 #import urllib.request
 
 #import urllib2
+
+from urllib.parse import urlparse, urlencode
+from urllib.request import urlopen, Request
+from urllib.error import HTTPError
+
+
 import json
 import os
 
@@ -50,7 +56,6 @@ QR=['0','1','2','3','4','5','6','7']
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-
     print("Request:")
     print(json.dumps(req, indent=4))
 
