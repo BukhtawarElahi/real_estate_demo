@@ -169,8 +169,23 @@ def processProjectName(req):
     return project_name 
 
 
-
-
+def json_to_text(data)
+	i=0
+	length=len(data)
+	speech="Here are some properties with your choice:Yoy have total of "+legth+"records."+
+	while (i <length):
+		row_id[i]=data[i]['property_id']
+		row_title[i]=data[i]['title']
+		row_location[i]=data[i]['address']
+		row_price[i]=data[i]['price']
+		row_slug[i]=data[i]['slug']
+		row_number[i]=data[i]['number']
+		row_image[i]=data[i]['image']
+		roww_city[i]=data[i]['city_name']
+		speech_parts = "Here is number :" + i +"record"+ row_title[i]+ " price is "+ row_price[i]+ "For Info about this contact at number "+row_number 
+		speech=speech+speech_parts	
+		i+=1
+	return data
 
 def makeWebhookResult(data):
     i=0
@@ -487,7 +502,7 @@ def makeWebhookResult(data):
             
 
 #//////////
-    print(speech)
+    print('speech',speech)
 
     return {
         "speech": speech,
