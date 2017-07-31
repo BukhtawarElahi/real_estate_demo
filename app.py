@@ -59,8 +59,6 @@ def processlocation(req):
     result = req.get("result")
     parameters = result.get("parameters")
     cityNames = parameters.get("location")
-    if (cityNames.equals("") or cityName.equals(''))
-    return " ";  
     print("city data:", city)
     print("city:", city)
 
