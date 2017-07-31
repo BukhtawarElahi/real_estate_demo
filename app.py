@@ -172,7 +172,7 @@ def processProjectName(req):
 def json_to_text(data):
 	i=0
 	length=len(data)
-	speech="Here are some properties with your choice:Yoy have total of "+legth+"records."+
+	speech="Here are some properties with your choice:Yoy have total of "+length+"records."
 	while (i <length):
 		row_id[i]=data[i]['property_id']
 		row_title[i]=data[i]['title']
