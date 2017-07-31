@@ -204,7 +204,7 @@ def json_to_text(data):
         row_number[i]=data[i]['number']
         row_image[i]=data[i]['image']
         row_city[i]=data[i]['city_name']
-        speech_parts = "Here is number :" + i +"record"+ row_title[i]+ " price is "+ row_price[i]+ "For Info about this contact at number "+row_number 
+        speech_parts = "Here is number :" + str(i) +"record"+ row_title[i]+ " price is "+ str(row_price[i])+ "For Info about this contact at number "+str(row_number[i]) 
         speech=speech+speech_parts	
         i+=1
      print('speech',speech)
