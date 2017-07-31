@@ -28,50 +28,15 @@ from flask import make_response
 
 # Flask app should start in global layout
 app = Flask(__name__)
-
-#start
-#@app.route('/webhook', methods=['POST'])
-#def webhook():
- #   req = request.get_json(silent=True, force=True)
- #   print("Request:")
- #  print(json.dumps(req, indent=4))
-
- #   res = makeWebhookResult(req)
-
- #   res = json.dumps(res, indent=4)
-  #  print(res)
- #   r = make_response(res)
-  #  r.headers['Content-Type'] = 'application/json'
-   # return r
-
-#def makeWebhookResult(req):
- #   if req.get("result").get("action") != "property_search":
-  #      return {}
-   # result = req.get("result")
-    #parameters = result.get("parameters")
-    #zone = parameters.get("city")
-    #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'islamabad':500}
-    
-	
-   
-    #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) +" euros. "
-
-    #print("Response:")
-#end comment
-
 intent_name="string"
-QR=['0','1','2','3','4','5','6','7']
-
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
     print("Request:")
     print(json.dumps(req, indent=4))
-
     res = processRequest(req)
-
     res = json.dumps(res, indent=4)
-    # print(res)
+    print("after json.dumps",res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -90,19 +55,9 @@ def processRequest(req):
     if req.get("result").get("action") != "property_search":
         return {}
     global city_names
-    city_names=processlocation(req)
     global QR
     global intent_name
     intent_name=processIntentName(req)
-    if "search_property" in intent_name:        
-        QR[0]="Sector in "+city_names
-        QR[1]="Other City?Specify"
-        QR[2]="(Y)"
-        QR[3]="Hot Property"
-        QR[4]="Price Range"
-        QR[5]="Land Area"
-        QR[6]="Property Type"
-   
     city_names=processlocation(req)
     property_type=processPropertyType(req)
     maximum_value=processMaximum(req)
@@ -119,7 +74,7 @@ def processRequest(req):
 
     counter=0 
 
-    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s=city_names"
+    baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names
     print("city:",city_names)
     print("url is:",baseurl)
     result = urllib.request.urlopen(baseurl).read()
