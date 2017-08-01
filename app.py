@@ -39,12 +39,12 @@ def processRequest(req):
     #baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&price_min="+maximum_value+"&price_max=0estate_agent=&purpose=Sell&property_type="+property_type
 
     baseurl="https://www.aarz.pk/search/bot?postedBy=searchPage&view=&city_s="+city_names+"&type="+property_type+"&maxPrice="+maximum_value
-    print("city:",city_names)
+    #print("city:",city_names)
     print("url is:",baseurl)
     result = urllib.request.urlopen(baseurl).read()
-    print('result of url:', result)
+    #print('result of url:', result)
     data = json.loads(result)
-    print('data:', data)
+    #print('data:', data)
     res2=json_to_text(data)
     print('res2:',res2)
     return res2
@@ -61,8 +61,8 @@ def processlocation(req):
     parameters = result.get("parameters")
     cityNames = parameters.get("location")
     city = cityNames.get("city")
-    print("city data:", city)
-    print("city:", city)
+    #print("city data:", city)
+    #print("city:", city)
 
     return city
 
@@ -120,8 +120,8 @@ def json_to_text(data):
         text_data_parts ="Here is record " + str(i+1) +":"+ row_title[i]+" in city "+row_city[i] + " price is "+ str(row_price[i])+ ". For Info about this contact at number "+str(row_number[i]) + "."
         text_data = text_data + text_data_parts	
         i+=1
-     print('speech Data',speech_data)
-     print('Text Data',text_data)
+     #print('speech Data',speech_data)
+     #print('Text Data',text_data)
      return {
         "speech": text_data,
         "displayText": text_data,
